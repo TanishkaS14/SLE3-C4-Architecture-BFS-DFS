@@ -1,0 +1,10 @@
+@startuml
+title C4 Level 1 - BFS and DFS
+left to right direction
+
+actor User
+rectangle "Graph Search System" as System
+
+User --> System : Provides graph
+System --> User : Returns path
+@enduml

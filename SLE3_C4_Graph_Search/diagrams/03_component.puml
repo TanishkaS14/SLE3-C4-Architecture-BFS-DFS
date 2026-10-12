@@ -1,0 +1,24 @@
+@startuml
+title C4 Level 3 - BFS Internal Components
+left to right direction
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+rectangle "BFS Function: bfs(g, start, goal)" {
+    component "Queue\n(deque)" as Queue
+    component "Visited Set" as Visited
+    component "Neighbor Expansion" as Neighbors
+    component "Goal Test" as Goal
+    component "Parent Dictionary" as Parent
+    component "Path Reconstruction" as Path
+}
+
+Queue --> Neighbors : Get next node
+Neighbors --> Visited : Check neighbor
+Neighbors --> Queue : Enqueue new node
+Neighbors --> Parent : Record parent
+Queue --> Goal : Test popped node
+Goal --> Path : If goal found
+Parent --> Path : Trace parent links
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+title C4 Level 4 - Python Code Overview
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+class GraphData <<conceptual>> {
+    graph: dictionary
+}
+
+class SearchAlgorithms <<module>> {
+    bfs(g, start, goal)
+    dfs(g, start, goal)
+}
+
+class Profiling <<module>> {
+    measure(function, runs)
+}
+
+class SearchResult <<conceptual>> {
+    path
+    expanded_nodes
+}
+
+GraphData --> SearchAlgorithms : Graph input
+SearchAlgorithms --> SearchResult : Path and node count
+Profiling --> SearchAlgorithms : Repeated execution
+
+@enduml
